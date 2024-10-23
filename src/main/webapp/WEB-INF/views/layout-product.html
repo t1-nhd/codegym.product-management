@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        .text-center{
+            text-align: center;
+        }
+        #table-index{
+            font-size: 20px;
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        .table-head{
+            background-color: bisque;
+        }
+        #table-index th, #table-index td {
+            padding: 10px 10px 10px 5px;
+            border: 1px solid #ddd;
+        }
+        #table-index tr:nth-child(even){
+            background-color: beige;
+        }
+        #table-index tbody tr:hover {
+            background-color: antiquewhite;
+        }
+        .navigator{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px 0;
+        }
+        #table-index a:visited, a{
+            text-decoration: none;
+        }
+        #table-index a:hover{
+            color: #1d4ed8;
+        }
+
+        #table-view{
+            border: 1px solid black;
+            width: 100%;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        #table-view td {
+            padding: 10px;
+        }
+        .w-30{
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

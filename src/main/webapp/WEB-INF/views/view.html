@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout-product :: head">
+    <title>View</title>
+</head>
+<body>
+<div class="w-30">
+    <h1 class="text-center" th:text="${product.getProductName()}"></h1>
+    <div class="navigator">
+        <div>
+            <a class="bt-back" style="color: #3b82f6;" th:href="@{/products}">Back to list</a>
+        </div>
+        <div>
+            <a class="bt-edit" style="color: #f59e0b;" th:href="@{/products/{id}/edit(id=${product.getId()})}">Edit</a>
+            <a class="bt-delete" style="color: #ef4444;" th:href="@{/products/{id}/delete(id=${product.getId()})}">Delete</a>
+        </div>
+    </div>
+
+    <table id="table-view">
+        <tr>
+            <td style="font-weight: bold;">Id</td>
+            <td th:text="${product.getId()}"></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Price:</td>
+            <td th:text="${#numbers.formatInteger(product.getProductPrice(),3,'COMMA')}"></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Description</td>
+            <td th:text="${product.getProductDescription()}"></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Supplier</td>
+            <td th:text="${product.getSupplierName()}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

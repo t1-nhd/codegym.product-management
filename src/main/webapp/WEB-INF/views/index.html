@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout-product :: head">
+    <title>Product</title>
+</head>
+<body>
+<h1 class="text-center">Product list</h1>
+<div style="padding: 20px;">
+    <a th:href="@{/products/create}">Create new product</a>
+</div>
+<div>
+    <table id="table-index">
+        <thead class="table-head">
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Product name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Supplier</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody th:each="product, index : ${products}">
+        <tr>
+            <td class="text-center" th:text="${index.count}"></td>
+            <td class="text-center" th:text="${product.getId()}"></td>
+            <td th:text="${product.getProductName()}"></td>
+            <td class="text-center" th:text="${#numbers.formatInteger(product.getProductPrice(),3,'COMMA')}"></td>
+            <td class="text-center" th:text="${product.getProductDescription()}"></td>
+            <td th:text="${product.getSupplierName()}"></td>
+            <td class="text-center tr-controller">
+                <a th:href="@{/products/{id}(id=${product.getId()})}">View</a>
+                <a th:href="@{/products/{id}/edit(id=${product.getId()})}">Edit</a>
+                <a th:href="@{/products/{id}/delete(id=${product.getId()})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

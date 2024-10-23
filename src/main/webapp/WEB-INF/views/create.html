@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout-product :: head">
+    <title>Create new Product</title>
+</head>
+<body>
+<div style="width: 30%; padding: 20px;">
+    <div>
+        <a th:href="@{/products}">Back to list</a>
+    </div>
+    <h1 style="text-align: center;">
+        New Product
+    </h1>
+    <form th:action="@{/products/save}" method="post" th:object="${product}">
+        <input type="hidden" name="id" th:value="${lastProduct}" />
+        <table style="width: 90%; margin:auto; font-size: 20px;">
+            <tr>
+                <td style="padding: 10px 0;">Product name <span style="color: red;">(*)</span>:</td>
+                <td>
+                    <input style="width: 100%; padding: 5px;" type="text" th:field="*{productName}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 0;">Price <span style="color: red;">(*)</span>:</td>
+                <td>
+                    <input style="width: 100%; padding: 5px;" type="number" th:field="*{productPrice}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 0;">Product description:</td>
+                <td>
+                    <input style="width: 100%; padding: 5px;" type="text" th:field="*{productDescription}"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 0;">Supplier name:</td>
+                <td>
+                    <input style="width: 100%; padding: 5px;" type="text" th:field="*{supplierName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: end" colspan="2">
+                    <input style="padding: 10px 20px;" type="submit" value="Save"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
